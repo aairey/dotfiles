@@ -1,0 +1,16 @@
+.*
+Desktop
+Downloads
+Templates
+Public
+Pictures
+Music
+Documents
+Videos
+tmp
+mnt
+*.log
+*core
+*.swp
+*.swo
+*.bak
