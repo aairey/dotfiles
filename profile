@@ -5,10 +5,10 @@ if [ -n "$BASH" ] && [ -r ~/.bashrc ]; then
 fi
 
 if [ -f ~/.aliases ]; then
-    . ~/.aliases
+    source ~/.aliases
 fi
 
 if [ -f ~/.functions ]; then
-    . ~/.functions
+    source ~/.functions
 fi
 
