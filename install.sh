@@ -1,18 +1,19 @@
-#!/bin/bash
-
-src='~/.dotfiles'
-
-ln -fs $src/aliases ~/.aliases
-ln -fs $src/bash_logout ~/.bash_logout
-ln -fs $src/bash_profile ~/.bash_profile
-ln -fs $src/bashrc ~/.bashrc
-ln -fs $src/bashrc_debian ~/.bashrc_debian
-ln -fs $src/functions ~/.functions
-ln -fs $src/local ~/.local
-ln -fs $src/oh-my-zsh ~/.oh-my-zsh
-ln -fs $src/profile ~/.profile
-ln -fs $src/vimrc ~/.vimrc
-ln -fs $src/vimrc-windows ~/.vimrc-windows
-ln -fs $src/vim_runtime ~/.vim_runtime
-ln -fs $src/zshrc ~/.zshrc
+ #!/bin/bash
+ 
+ cd "$(dirname "$0")/.."
+ DOTFILES_ROOT=$(pwd -P)
+ 
+ ln -fs $DOTFILES_ROOT/.dotfiles/aliases $DOTFILES_ROOT/.aliases
+ ln -fs $DOTFILES_ROOT/.dotfiles/bash_logout $DOTFILES_ROOT/.bash_logout
+ ln -fs $DOTFILES_ROOT/.dotfiles/bash_profile $DOTFILES_ROOT/.bash_profile
+ ln -fs $DOTFILES_ROOT/.dotfiles/bashrc $DOTFILES_ROOT/.bashrc
+ ln -fs $DOTFILES_ROOT/.dotfiles/bashrc_debian $DOTFILES_ROOT/.bashrc_debian
+ ln -fs $DOTFILES_ROOT/.dotfiles/functions $DOTFILES_ROOT/.functions
+ ln -fs $DOTFILES_ROOT/.dotfiles/local $DOTFILES_ROOT/.local
+ ln -fs $DOTFILES_ROOT/.dotfiles/oh-my-zsh $DOTFILES_ROOT/.oh-my-zsh
+ ln -fs $DOTFILES_ROOT/.dotfiles/profile $DOTFILES_ROOT/.profile
+ ln -fs $DOTFILES_ROOT/.dotfiles/vimrc $DOTFILES_ROOT/.vimrc
+ ln -fs $DOTFILES_ROOT/.dotfiles/vimrc-windows $DOTFILES_ROOT/.vimrc-windows
+ ln -fs $DOTFILES_ROOT/.dotfiles/vim_runtime $DOTFILES_ROOT/.vim_runtime
+ ln -fs $DOTFILES_ROOT/.dotfiles/zshrc $DOTFILES_ROOT/.zshrc
 
