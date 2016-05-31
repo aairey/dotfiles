@@ -1,17 +1,18 @@
 #!/bin/bash
 
-$src=${pwd}
+src='~/.dotfiles'
 
-ln -s ~/.aliases $src/aliases
-ln -s ~/.bash_logout $src/bash_logout
-ln -s ~/.bash_profile $src/bash_profile
-ln -s ~/.bashrc $src/bashrc
-ln -s ~/.bashrc_debian $src/bashrc_debian
-ln -s ~/.functions $src/functions
-ln -s ~/.local $src/local
-ln -s ~/.oh-my-zsh $src/oh-my-zsh
-ln -s ~/.profile $src/profile
-ln -s ~/.vimrc $src/vimrc
-ln -s ~/.vimrc-windows $src/vimrc-windows
-ln -s ~/.vim_runtime $src/vim_runtime
-ln -s ~/.zshrc $src/zshrc
+ln -fs $src/aliases ~/.aliases
+ln -fs $src/bash_logout ~/.bash_logout
+ln -fs $src/bash_profile ~/.bash_profile
+ln -fs $src/bashrc ~/.bashrc
+ln -fs $src/bashrc_debian ~/.bashrc_debian
+ln -fs $src/functions ~/.functions
+ln -fs $src/local ~/.local
+ln -fs $src/oh-my-zsh ~/.oh-my-zsh
+ln -fs $src/profile ~/.profile
+ln -fs $src/vimrc ~/.vimrc
+ln -fs $src/vimrc-windows ~/.vimrc-windows
+ln -fs $src/vim_runtime ~/.vim_runtime
+ln -fs $src/zshrc ~/.zshrc
+
