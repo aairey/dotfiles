@@ -1,0 +1,13 @@
+# .aliases
+# contains bash and zsh compatible aliases and functions
+
+# ls aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias lh='ls -lAd .*'
+
+# ssh aliases
+alias sshno='ssh -oGSSAPIAuthentication=no -oPubKeyAuthentication=no'
+alias sshnetapp='ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -lroot'
+alias sshro='ssh -lroot'
+

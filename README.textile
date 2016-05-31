@@ -1,6 +1,0 @@
-Hello There
------------
-
-This is a git repo to be able to share my home directory settings and scripts accross multiple hosts.
-
-That way I only need to configue it once.
