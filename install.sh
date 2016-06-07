@@ -5,6 +5,7 @@ DOTFILES_ROOT=$(pwd -P)
  
 
 # create symlinks
+echo "Creating symlinks ..."
 ln -fs $DOTFILES_ROOT/.dotfiles/aliases $DOTFILES_ROOT/.aliases
 ln -fs $DOTFILES_ROOT/.dotfiles/bash_logout $DOTFILES_ROOT/.bash_logout
 ln -fs $DOTFILES_ROOT/.dotfiles/bash_profile $DOTFILES_ROOT/.bash_profile
@@ -20,4 +21,5 @@ ln -fs $DOTFILES_ROOT/.dotfiles/vim/vim_runtime $DOTFILES_ROOT/.vim_runtime
 ln -fs $DOTFILES_ROOT/.dotfiles/zshrc $DOTFILES_ROOT/.zshrc
 
 # Reload fonts
+echo "Reloading fonts cache ..."
 fc-cache -f
