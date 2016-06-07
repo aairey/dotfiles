@@ -83,4 +83,4 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$HOME/bin"
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # start ssh-agent
-eval `ssh-agent -s`
+#eval `ssh-agent -s`
