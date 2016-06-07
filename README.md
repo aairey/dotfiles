@@ -6,6 +6,7 @@ My dotfiles.
 ## Dependencies
 * `zsh`
 * `vim`
+* `python-virtualenvwrapper`
 * `ctags` (for vim plugins)
 
 Change your shell to zsh with the `chsh` command.
