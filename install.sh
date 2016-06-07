@@ -9,7 +9,7 @@
  ln -fs $DOTFILES_ROOT/.dotfiles/bashrc $DOTFILES_ROOT/.bashrc
  ln -fs $DOTFILES_ROOT/.dotfiles/bashrc_debian $DOTFILES_ROOT/.bashrc_debian
  ln -fs $DOTFILES_ROOT/.dotfiles/functions $DOTFILES_ROOT/.functions
- ln -fs $DOTFILES_ROOT/.dotfiles/local $DOTFILES_ROOT/.local
+ ln -fs $DOTFILES_ROOT/.dotfiles/local/share/fonts $DOTFILES_ROOT/.local/share/fonts
  ln -fs $DOTFILES_ROOT/.dotfiles/oh-my-zsh $DOTFILES_ROOT/.oh-my-zsh
  ln -fs $DOTFILES_ROOT/.dotfiles/profile $DOTFILES_ROOT/.profile
  ln -fs $DOTFILES_ROOT/.dotfiles/vimrc $DOTFILES_ROOT/.vimrc
