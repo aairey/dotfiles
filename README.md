@@ -7,7 +7,8 @@ My dotfiles.
 * `zsh`
 * `vim`
 * `python-virtualenvwrapper`
-* `ctags` (for vim plugins)
+* `ctags` for vim plugins
+* `xclip` for clipboard aliases
 
 Change your shell to zsh with the `chsh` command.
 
