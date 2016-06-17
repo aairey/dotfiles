@@ -11,6 +11,11 @@ ZSH_THEME="agnoster"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# load shell-agnostic stuff first
+if [ -f ~/.profile ]; then
+    source ~/.profile
+fi
+
 if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
