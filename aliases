@@ -14,3 +14,6 @@ alias sshro='ssh -lroot'
 # clipboard aliases (requires xclip)
 alias c='xclip -selection clipboard'
 alias v='xclip -o -selection clipboard'
+
+# Run docker as sudo
+alias docker="sudo /usr/bin/docker"
