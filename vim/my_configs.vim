@@ -1,6 +1,6 @@
-#                                                  #
-# This is my personal config for vim               #
-#                                       Andy Airey #
+"                                                  "
+" This is my personal config for vim               "
+"                                       Andy Airey "
 
 syntax enable
 
@@ -21,4 +21,8 @@ endif
 
 " enable this if you cannot enable a solarized color palette in your terminal
 "let g:solarized_termcolors=256
-"colorscheme solarized
+colorscheme solarized
+
+" Plugin related stuff
+let g:gitgutter_enabled=1
+

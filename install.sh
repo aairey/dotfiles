@@ -24,6 +24,11 @@ ln -fs $INSTALLDIR/vim/vimrc-windows $HOME/.vimrc-windows
 ln -fsn $INSTALLDIR/vim/vim_runtime $HOME/.vim_runtime
 ln -fs $INSTALLDIR/zshrc $HOME/.zshrc
 
+# installing vim plugins
+pushd $INSTALLDIR/vim/vim_runtime/
+python update_plugins.py
+popd
+
 # Reload fonts
 echo "Reloading fonts cache ..."
 #fc-cache -f
