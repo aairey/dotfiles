@@ -23,6 +23,7 @@ ln -fs $INSTALLDIR/vim/vimrc $HOME/.vimrc
 ln -fs $INSTALLDIR/vim/vimrc-windows $HOME/.vimrc-windows
 ln -fsn $INSTALLDIR/vim/vim_runtime $HOME/.vim_runtime
 ln -fs $INSTALLDIR/zshrc $HOME/.zshrc
+ln -fsn $INSTALLDIR/config/terminator $HOME/.config/terminator
 
 # update submodules
 echo "updating submodules ..."
