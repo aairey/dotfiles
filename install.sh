@@ -24,8 +24,13 @@ ln -fs $INSTALLDIR/vim/vimrc-windows $HOME/.vimrc-windows
 ln -fsn $INSTALLDIR/vim/vim_runtime $HOME/.vim_runtime
 ln -fs $INSTALLDIR/zshrc $HOME/.zshrc
 
+# update submodules
+echo "updating submodules ..."
+git submodule update --init --recursive
+
 # installing vim plugins
 pushd $INSTALLDIR/vim/vim_runtime/
+echo "updating vim plugins ..."
 python update_plugins.py
 popd
 
