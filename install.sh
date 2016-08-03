@@ -29,6 +29,10 @@ ln -fsn $INSTALLDIR/config/terminator $HOME/.config/terminator
 echo "updating submodules ..."
 git submodule update --init --recursive
 
+# add custom oh-my-zsh plugins
+echo "addinng zsh-syntax-highlighting plugin for oh-my-zsh ..."
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
 # installing vim plugins
 pushd $INSTALLDIR/vim/vim_runtime/
 echo "updating vim plugins ..."
