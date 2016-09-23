@@ -12,6 +12,9 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
+" fixes YAML auto-indent
+autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
+
 " set different background in gui
 if has('gui_running') 
     set background=light
