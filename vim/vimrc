@@ -1,5 +1,11 @@
 set runtimepath+=~/.vim_runtime
 
+" system-wide vimrc if present
+try
+    source /etc/vimrc
+catch
+endtry
+
 " Use Amix's vimrc
 source ~/.vim_runtime/vimrcs/basic.vim
 source ~/.vim_runtime/vimrcs/filetypes.vim
@@ -9,6 +15,8 @@ source ~/.vim_runtime/vimrcs/extended.vim
 
 " own stuff
 try
-source ~/.dotfiles/vim/my_configs.vim
+    source ~/.dotfiles/vim/my_configs.vim
 catch
 endtry
+
+colorscheme default
