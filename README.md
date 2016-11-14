@@ -6,7 +6,8 @@ My dotfiles.
 ## Dependencies
 * `zsh`
 * `vim`
-* `python-virtualenvwrapper`
+* `python-requests`
+* `pip install virtualenvwrapper`
 * `ctags` for vim plugins
 * `xclip` for clipboard aliases
 

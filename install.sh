@@ -8,6 +8,9 @@ if [ "$HOME/.dotfiles" != $INSTALLDIR ]; then
     exit 0
 fi
 
+# update submodules
+git submodule update --init
+
 # create symlinks
 echo "Creating symlinks ..."
 ln -fs $INSTALLDIR/aliases $HOME/.aliases
