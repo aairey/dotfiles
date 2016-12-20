@@ -42,6 +42,20 @@ echo "updating vim plugins ..."
 python update_plugins.py
 popd
 
+# Install TTY font and theme selector
+# Sorry! Only Fedora supported here.
+if [ -d /usr/lib/kbd/consolefonts/ ]; then
+    # we are on a RedHat Family OS
+    sudo cp $INSTALLDIR/local/share/fonts/ter-powerline-v16n.psf.gz /usr/lib/kbd/consolefonts/.
+    pushd $HOME/bin
+    wget https://raw.githubusercontent.com/josuah/config/master/.local/bin/tty-theme
+    chmod +x tty-theme
+    popd
+else
+    echo "Sorry! Only setting TTY customisations on Fedora for now."
+fi
+
+
 # Reload fonts
 echo "Reloading fonts cache ..."
 #fc-cache -f
