@@ -9,3 +9,5 @@ if [ -f /etc/redhat-release ]; then
     $OS=$(cat /etc/redhat-release)
     # no special bashrc needs to be run
 fi
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
