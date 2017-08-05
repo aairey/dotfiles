@@ -17,3 +17,9 @@ alias v='xclip -o -selection clipboard'
 
 # Run docker as sudo
 alias docker="sudo /usr/bin/docker"
+
+# Add git push --tags alias
+alias gpt='git push --tags'
+
+# Make aliases work with sudo
+alias sudo='sudo '
