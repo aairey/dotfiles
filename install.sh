@@ -28,6 +28,7 @@ ln -fsn $INSTALLDIR/vim/vim_runtime $HOME/.vim_runtime
 ln -fsn $INSTALLDIR/vim/pack $HOME/.vim/pack
 ln -fs $INSTALLDIR/zshrc $HOME/.zshrc
 ln -fsn $INSTALLDIR/config/terminator $HOME/.config/terminator
+ln -fs $INSTALLDIR/tmux.conf $HOME/.tmux.conf
 
 # update submodules
 echo "updating submodules ..."
