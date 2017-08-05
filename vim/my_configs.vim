@@ -24,8 +24,11 @@ endif
 
 " enable this if you cannot enable a solarized color palette in your terminal
 "let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme default
 
 " Plugin related stuff
 let g:gitgutter_enabled=1
+let g:ansible_name_highlight = 'b'
+let g:ansible_attribute_highlight = "b"
+let g:ansible_extra_keywords_highlight = 1
 

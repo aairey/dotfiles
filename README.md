@@ -10,6 +10,7 @@ My dotfiles.
 * `pip install virtualenvwrapper`
 * `ctags` for vim plugins
 * `xclip` for clipboard aliases
+* `powerline`
 
 Change your shell to zsh with the `chsh` command.
 
