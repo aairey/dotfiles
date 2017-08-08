@@ -22,3 +22,6 @@
 [submodule "vim/pack/aairey/start/ctrlp.vim"]
 	path = vim/pack/aairey/start/ctrlp.vim
 	url = git@github.com:ctrlpvim/ctrlp.vim.git
+[submodule "vim/pack/aairey/start/ansible-vim"]
+	path = vim/pack/aairey/start/ansible-vim
+	url = git@github.com:pearofducks/ansible-vim.git
