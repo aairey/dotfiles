@@ -23,3 +23,14 @@ alias gpt='git push --tags'
 
 # Make aliases work with sudo
 alias sudo='sudo '
+
+# To be able to use +clipboard in vim
+alias vim='vimx'
+
+# Ansible shortcuts
+alias ans='ansible'
+alias ansp='time ansible-playbook -K'
+alias ansg='ansible-galaxy'
+
+# Colored diff
+alias diff='diff --color'
