@@ -25,3 +25,9 @@
 [submodule "vim/pack/aairey/start/ansible-vim"]
 	path = vim/pack/aairey/start/ansible-vim
 	url = git@github.com:pearofducks/ansible-vim.git
+[submodule "vim/pack/aairey/start/vim-snippets"]
+	path = vim/pack/aairey/start/vim-snippets
+	url = git@github.com:honza/vim-snippets.git
+[submodule "vim/pack/aairey/start/ultisnips"]
+	path = vim/pack/aairey/start/ultisnips
+	url = git@github.com:SirVer/ultisnips.git
