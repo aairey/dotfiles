@@ -26,6 +26,7 @@ ln -fs $INSTALLDIR/vim/vimrc $HOME/.vimrc
 ln -fs $INSTALLDIR/vim/vimrc-windows $HOME/.vimrc-windows
 ln -fsn $INSTALLDIR/vim/vim_runtime $HOME/.vim_runtime
 ln -fsn $INSTALLDIR/vim/pack $HOME/.vim/pack
+ln -fsn $INSTALLDIR/vim/colors $HOME/.vim/colors
 ln -fs $INSTALLDIR/zshrc $HOME/.zshrc
 ln -fsn $INSTALLDIR/config/terminator $HOME/.config/terminator
 ln -fs $INSTALLDIR/tmux.conf $HOME/.tmux.conf
