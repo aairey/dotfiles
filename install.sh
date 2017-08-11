@@ -45,6 +45,11 @@ echo "updating vim plugins ..."
 python update_plugins.py
 popd
 
+# Installing YouCompleteMe vim plugin
+pushd $INSTALLDIR/vim/pack/start/aairey/YouCompleteMe
+./install.py --tern-completer --gocode-completer
+popd
+
 # Install TTY font and theme selector
 # Sorry! Only Fedora supported here.
 if [ -d /usr/lib/kbd/consolefonts/ ]; then

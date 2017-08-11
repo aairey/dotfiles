@@ -31,3 +31,6 @@
 [submodule "vim/pack/aairey/start/ultisnips"]
 	path = vim/pack/aairey/start/ultisnips
 	url = git@github.com:SirVer/ultisnips.git
+[submodule "vim/pack/aairey/start/YouCompleteMe"]
+	path = vim/pack/aairey/start/YouCompleteMe
+	url = git@github.com:Valloric/YouCompleteMe.git
