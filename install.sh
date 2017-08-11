@@ -2,14 +2,24 @@
 
 INSTALLDIR=$(cd $(dirname "$0") && pwd)
 
-#if current dir is not '~/.dotfiles', complain and exit
+# if current dir is not '~/.dotfiles', complain and exit
 if [ "$HOME/.dotfiles" != $INSTALLDIR ]; then 
     echo "dotfiles repo not cloned into $HOME/.dotfiles! Exiting ..."
     exit 0
 fi
 
+# Suppress pushd/popd output
+pushd () {
+    command pushd "$@" > /dev/null
+}
+
+popd () {
+    command popd "$@" > /dev/null
+}
+
 # update submodules
-git submodule update --init
+echo "updating submodules ..."
+git submodule update --init --recursive
 
 # create symlinks
 echo "Creating symlinks ..."
@@ -24,26 +34,15 @@ ln -fsn $INSTALLDIR/oh-my-zsh $HOME/.oh-my-zsh
 ln -fs $INSTALLDIR/profile $HOME/.profile
 ln -fs $INSTALLDIR/vim/vimrc $HOME/.vimrc
 ln -fs $INSTALLDIR/vim/vimrc-windows $HOME/.vimrc-windows
-ln -fsn $INSTALLDIR/vim/vim_runtime $HOME/.vim_runtime
 ln -fsn $INSTALLDIR/vim/pack $HOME/.vim/pack
 ln -fsn $INSTALLDIR/vim/colors $HOME/.vim/colors
 ln -fs $INSTALLDIR/zshrc $HOME/.zshrc
 ln -fsn $INSTALLDIR/config/terminator $HOME/.config/terminator
 ln -fs $INSTALLDIR/tmux.conf $HOME/.tmux.conf
 
-# update submodules
-echo "updating submodules ..."
-git submodule update --init --recursive
-
 # add custom oh-my-zsh plugins
 echo "addinng zsh-syntax-highlighting plugin for oh-my-zsh ..."
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-# installing vim plugins
-pushd $INSTALLDIR/vim/vim_runtime/
-echo "updating vim plugins ..."
-python update_plugins.py
-popd
 
 # Installing YouCompleteMe vim plugin
 pushd $INSTALLDIR/vim/pack/start/aairey/YouCompleteMe
@@ -63,7 +62,7 @@ else
     echo "Sorry! Only setting TTY customisations on Fedora for now."
 fi
 
-
 # Reload fonts
 echo "Reloading fonts cache ..."
 #fc-cache -f
+

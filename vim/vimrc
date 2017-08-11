@@ -1,22 +1,45 @@
-set runtimepath+=~/.vim_runtime
+"                                                  "
+" This is my personal config for vim               "
+"                                       Andy Airey "
 
-" system-wide vimrc if present
-try
-    source /etc/vimrc
-catch
-endtry
+syntax enable
+set number
 
-" Use Amix's vimrc
-source ~/.vim_runtime/vimrcs/basic.vim
-source ~/.vim_runtime/vimrcs/filetypes.vim
-"source ~/.vim_runtime/vimrcs/plugins_config.vim
-"source ~/.vim_runtime/vimrcs/extended.vim
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
 
+" fixes YAML auto-indent
+autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 
-" own stuff
-try
-    source ~/.dotfiles/vim/my_configs.vim
-catch
-endtry
+" set different background in gui
+if has('gui_running') 
+    set background=light
+else
+    set background=dark
+endif
 
-colorscheme default
+" enable this if you cannot enable a solarized color palette in your terminal
+"let g:solarized_termcolors=256
+" enable solarized scheme, only needed when terminal is not using solarized by
+" itself
+"colorscheme solarized
+
+" Enable powerline
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+set laststatus=2 "always enable statusline
+
+" Plugin related stuff
+let g:gitgutter_enabled=1
+let g:ansible_name_highlight = 'b'
+let g:ansible_attribute_highlight = "b"
+let g:ansible_extra_keywords_highlight = 1
+
+" UltiSnips use shift-tab
+let g:UltiSnipsExpandTrigger="<s-tab>"
