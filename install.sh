@@ -41,8 +41,10 @@ ln -fsn $INSTALLDIR/config/terminator $HOME/.config/terminator
 ln -fs $INSTALLDIR/tmux.conf $HOME/.tmux.conf
 
 # add custom oh-my-zsh plugins
-echo "addinng zsh-syntax-highlighting plugin for oh-my-zsh ..."
+echo "adding zsh-syntax-highlighting plugin for oh-my-zsh ..."
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+echo "Fixing aws zs_completion on fedora"
+sed -i '48s/.*/  _aws_zsh_completer_path=\/usr\/share\/zsh\/site-functions\/aws_zsh_completer.sh/' ~/.oh-my-zsh/plugins/aws/aws.plugin.zsh
 
 # Installing YouCompleteMe vim plugin
 pushd $INSTALLDIR/vim/pack/start/aairey/YouCompleteMe
