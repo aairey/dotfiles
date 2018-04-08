@@ -23,6 +23,10 @@ else
     set background=dark
 endif
 
+" Set correct filetype for Jenkinsfiles
+au BufReadPost Jenkinsfile set syntax=groovy
+au BufReadPost Jenkinsfile set filetype=groovy
+
 " enable this if you cannot enable a solarized color palette in your terminal
 "let g:solarized_termcolors=256
 " enable solarized scheme, only needed when terminal is not using solarized by

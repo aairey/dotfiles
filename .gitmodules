@@ -34,3 +34,6 @@
 [submodule "vim/pack/aairey/start/YouCompleteMe"]
 	path = vim/pack/aairey/start/YouCompleteMe
 	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "vim/pack/aairey/start/Jenkinsfile-vim-syntax"]
+	path = vim/pack/aairey/start/Jenkinsfile-vim-syntax
+	url = git@github.com:martinda/Jenkinsfile-vim-syntax.git
