@@ -1,8 +1,9 @@
 [global_config]
+  enabled_plugins = InactivityWatch, ActivityWatch, TerminalShot, MavenPluginURLHandler
   title_font = Droid Sans Mono for Powerline 14
   title_inactive_bg_color = "#2aa198"
   title_inactive_fg_color = "#002b36"
-  title_receive_bg_color = "#6c71c4"
+  title_receive_bg_color = "#ef2929"
   title_receive_fg_color = "#fdf6e3"
   title_transmit_bg_color = "#268bd2"
   title_transmit_fg_color = "#fdf6e3"
@@ -21,23 +22,15 @@
 [profiles]
   [[default]]
     audible_bell = True
-    background_color = "#323232"
+    background_color = "#202020"
     background_darkness = 0.85
-    cursor_color = "#d6d6d6"
+    cursor_color = "#bbbbbb"
     font = Droid Sans Mono for Powerline 12
-    foreground_color = "#ffffff"
-    palette = "#353535:#d25252:#a5c261:#ffc66d:#6c99bb:#d197d9:#bed6ff:#eeeeec:#535353:#f00c0c:#c2e075:#e1e48b:#8ab7d9:#efb5f7:#dcf4ff:#ffffff"
+    foreground_color = "#adadad"
+    palette = "#adadad:#fc5256:#98b61c:#ccb444:#437ee7:#9d74b0:#248887:#181818:#ffffff:#fc7072:#98b61c:#ffff0b:#6c9ced:#fc7eff:#248887:#181818"
     scrollback_infinite = True
     use_system_font = False
     visible_bell = True
-  [[Belafonte Day]]
-    background_color = "#0e1011"
-    cursor_color = "#708284"
-    font = Droid Sans Mono for Powerline 12
-    foreground_color = "#7c8fa4"
-    palette = "#002831:#e63853:#5eb83c:#a57706:#359ddf:#d75cff:#4b73a2:#dcdcdc:#001e27:#e1003f:#1d9000:#cd9409:#006fc0:#a200da:#005794:#e2e2e2"
-    scrollback_infinite = True
-    use_system_font = False
   [[Brogrammer]]
     background_color = "#131313"
     cursor_color = "#b9b9b9"
@@ -54,29 +47,40 @@
     palette = "#353535:#d25252:#a5c261:#ffc66d:#6c99bb:#d197d9:#bed6ff:#eeeeec:#535353:#f00c0c:#c2e075:#e1e48b:#8ab7d9:#efb5f7:#dcf4ff:#ffffff"
     use_system_font = False
   [[FirefoxDev]]
-    cursor_color = "#aaaaaa"
+    background_color = "#0e1011"
+    cursor_color = "#708284"
     font = Droid Sans Mono Slashed for Powerline 12
+    foreground_color = "#7c8fa4"
+    palette = "#002831:#e63853:#5eb83c:#a57706:#359ddf:#d75cff:#4b73a2:#dcdcdc:#001e27:#e1003f:#1d9000:#cd9409:#006fc0:#a200da:#005794:#e2e2e2"
     use_system_font = False
-  [[LiquidCarbon]]
-    background_color = "#303030"
+  [[JetBrains Darcula]]
+    background_color = "#202020"
     cursor_color = "#ffffff"
     font = Droid Sans Mono Slashed for Powerline 12
-    foreground_color = "#afc2c2"
-    palette = "#000000:#ff3030:#559a70:#ccac00:#0099cc:#cc69c8:#7ac4cc:#bccccc:#000000:#ff3030:#559a70:#ccac00:#0099cc:#cc69c8:#7ac4cc:#bccccc"
+    foreground_color = "#adadad"
+    palette = "#000000:#fa5355:#126e00:#c2c300:#4581eb:#fa54ff:#33c2c1:#adadad:#555555:#fb7172:#67ff4f:#ffff00:#6d9df1:#fb82ff:#60d3d1:#eeeeee"
     use_system_font = False
-  [[Misterioso]]
-    background_color = "#2d3743"
-    cursor_color = "#000000"
-    font = Droid Sans Mono for Powerline 12
-    foreground_color = "#e1e1e0"
-    palette = "#000000:#ff4242:#74af68:#ffad29:#338f86:#9414e6:#23d7d7:#e1e1e0:#555555:#ff3242:#74cd68:#ffb929:#23d7d7:#ff37ff:#00ede1:#ffffff"
-    use_system_font = False
-  [[Seafoam Pastel]]
-    background_color = "#243435"
-    cursor_color = "#57647a"
+  [[Novel]]
+    background_color = "#dfdbc3"
+    cursor_color = "#73635a"
     font = Droid Sans Mono Slashed for Powerline 12
-    foreground_color = "#d4e7d4"
-    palette = "#757575:#825d4d:#728c62:#ada16d:#4d7b82:#8a7267:#729494:#e0e0e0:#8a8a8a:#cf937a:#98d9aa:#fae79d:#7ac3cf:#d6b2a1:#ade0e0:#e0e0e0"
+    foreground_color = "#3b2322"
+    palette = "#000000:#cc0000:#009600:#d06b00:#0000cc:#cc00cc:#0087cc:#cccccc:#808080:#cc0000:#009600:#d06b00:#0000cc:#cc00cc:#0087cc:#ffffff"
+    scrollback_infinite = True
+    use_system_font = False
+  [[Ollie]]
+    background_color = "#222125"
+    cursor_color = "#5b6ea7"
+    font = Droid Sans Mono Slashed for Powerline 12
+    foreground_color = "#8a8dae"
+    palette = "#000000:#ac2e31:#31ac61:#ac4300:#2d57ac:#b08528:#1fa6ac:#8a8eac:#5b3725:#ff3d48:#3bff99:#ff5e1e:#4488ff:#ffc21d:#1ffaff:#5b6ea7"
+    use_system_font = False
+  [[SoftServer]]
+    background_color = "#242626"
+    cursor_color = "#d2e0de"
+    font = Droid Sans Mono Slashed for Powerline 12
+    foreground_color = "#99a3a2"
+    palette = "#000000:#a2686a:#9aa56a:#a3906a:#6b8fa3:#6a71a3:#6ba58f:#99a3a2:#666c6c:#dd5c60:#bfdf55:#deb360:#62b1df:#606edf:#64e39c:#d2e0de"
     use_system_font = False
   [[SpaceGray]]
     background_color = "#20242d"
@@ -103,21 +107,12 @@
     palette = "#4d4d4d:#705050:#60b48a:#f0dfaf:#506070:#dc8cc3:#8cd0d3:#dcdccc:#709080:#dca3a3:#c3bf9f:#e0cf9f:#94bff3:#ec93d3:#93e0e3:#ffffff"
     scrollback_infinite = True
     use_system_font = False
-  [[idleToes]]
-    background_color = "#323232"
-    cursor_color = "#d6d6d6"
+  [[idea]]
+    background_color = "#202020"
+    cursor_color = "#bbbbbb"
     font = Droid Sans Mono Slashed for Powerline 12
-    foreground_color = "#ffffff"
-    palette = "#323232:#d25252:#7fe173:#ffc66d:#4099ff:#f680ff:#bed6ff:#eeeeec:#535353:#f07070:#9dff91:#ffe48b:#5eb7f7:#ff9dff:#dcf4ff:#ffffff"
-    use_system_font = False
-  [[molokai]]
-    allow_bold = False
-    background_color = "#0d0d0d"
-    cursor_color = "#ffffff"
-    font = Droid Sans Mono for Powerline 12
-    foreground_color = "#ffffff"
-    palette = "#000000:#f92672:#6cc72c:#fe9720:#5f91ef:#9358fe:#36af90:#8c8c8c:#4c4c4c:#ff80f4:#a7e22e:#ffee99:#5fd9ef:#ae82fe:#66efd5:#c7cece"
-    scrollback_infinite = True
+    foreground_color = "#adadad"
+    palette = "#adadad:#fc5256:#98b61c:#ccb444:#437ee7:#9d74b0:#248887:#181818:#ffffff:#fc7072:#98b61c:#ffff0b:#6c9ced:#fc7eff:#248887:#181818"
     use_system_font = False
   [[solarized-dark]]
     background_color = "#002b36"
@@ -133,13 +128,5 @@
     font = Droid Sans Mono for Powerline 12
     foreground_color = "#002b36"
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    scrollback_infinite = True
-    use_system_font = False
-  [[zenburn]]
-    background_color = "#323232"
-    cursor_color = "#d6d6d6"
-    font = Droid Sans Mono for Powerline 12
-    foreground_color = "#ffffff"
-    palette = "#353535:#d25252:#a5c261:#ffc66d:#6c99bb:#d197d9:#bed6ff:#eeeeec:#535353:#f00c0c:#c2e075:#e1e48b:#8ab7d9:#efb5f7:#dcf4ff:#ffffff"
     scrollback_infinite = True
     use_system_font = False
