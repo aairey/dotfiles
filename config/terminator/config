@@ -22,12 +22,12 @@
 [profiles]
   [[default]]
     audible_bell = True
-    background_color = "#202020"
     background_darkness = 0.85
-    cursor_color = "#bbbbbb"
+    background_color = "#202020"
+    cursor_color = "#ffffff"
     font = Droid Sans Mono for Powerline 12
     foreground_color = "#adadad"
-    palette = "#adadad:#fc5256:#98b61c:#ccb444:#437ee7:#9d74b0:#248887:#181818:#ffffff:#fc7072:#98b61c:#ffff0b:#6c9ced:#fc7eff:#248887:#181818"
+    palette = "#000000:#fa5355:#126e00:#c2c300:#4581eb:#fa54ff:#33c2c1:#adadad:#555555:#fb7172:#67ff4f:#ffff00:#6d9df1:#fb82ff:#60d3d1:#eeeeee"
     scrollback_infinite = True
     use_system_font = False
     visible_bell = True
