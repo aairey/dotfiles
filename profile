@@ -18,8 +18,8 @@ if [ -d /usr/lib/kbd/consolefonts/ ]; then
     esac
 fi
 
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 

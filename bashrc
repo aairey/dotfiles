@@ -10,4 +10,5 @@ if [ -f /etc/redhat-release ]; then
     # no special bashrc needs to be run
 fi
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# add go-jira completion
+eval "$(jira --completion-script-bash)"

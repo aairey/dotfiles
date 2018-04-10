@@ -62,13 +62,12 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(sudo dnf tmux dirhistory web-search vagrant virtualenvwrapper pip python git tig svn zsh-syntax-highlighting rvm docker capistrano jira aws kubectl gpg-agent taskwarrior)
+plugins=(sudo dnf tmux dirhistory web-search vagrant virtualenvwrapper pip python git tig zsh-syntax-highlighting rvm docker capistrano aws kubectl gpg-agent taskwarrior)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$HOME/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -93,4 +92,5 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$HOME/bin"
 # load powerline
 . /usr/share/powerline/zsh/powerline.zsh
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# load go-jira completions
+eval "$(jira --completion-script-zsh)"
