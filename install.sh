@@ -39,6 +39,8 @@ ln -fsn $INSTALLDIR/vim/colors $HOME/.vim/colors
 ln -fs $INSTALLDIR/zshrc $HOME/.zshrc
 ln -fsn $INSTALLDIR/config/terminator $HOME/.config/terminator
 ln -fs $INSTALLDIR/tmux.conf $HOME/.tmux.conf
+ln -fs $INSTALLDIR/bugwarriorrc $HOME/.config/bugwarrior/bugwarriorrc
+ln -fs $INSTALLDIR/timewarrior.cfg $HOME/.timewarrior/timewarrior.cfg
 
 # add custom oh-my-zsh plugins
 echo "adding zsh-syntax-highlighting plugin for oh-my-zsh ..."
@@ -68,3 +70,11 @@ fi
 echo "Reloading fonts cache ..."
 #fc-cache -f
 
+# install colorls, howdoi, asciinema, dockly, fzf, whereami, gtop
+sudo gem install colorls
+sudo pip install howdoi
+noglob sudo python3 -m pip install asciinema
+sudo npm install -g dockly
+sudo dnf install fzf
+sudo npm install -g @rafaelrinaldi/whereami
+sudo npm install -g gtop

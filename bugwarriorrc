@@ -1,0 +1,27 @@
+[general]
+
+targets = jira_trimbletl
+legacy_matching = False
+inline_links = False
+annotation_links = True
+log.level = WARNING
+log.file = /var/log/bugwarrior.log
+
+[jira_trimbletl]
+service = jira
+jira.base_uri = https://trimbletl.atlassian.net
+jira.username = aairey
+jira.password = @oracle:use_keyring
+#jira.only_if_assigned = True
+jira.query = assignee = aairey AND statusCategory != Done
+jira.description_template = {{jiraid}} • {{jirasummary}}
+jira.import_labels_as_tags = True
+jira.import_sprints_as_tags = True
+jira.add_tags = jira
+
+[notifications]
+notifications = True
+backend = gobject
+finished_querying_sticky = False
+task_crud_sticky = True
+only_on_new_tasks = True

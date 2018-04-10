@@ -62,7 +62,7 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(sudo dnf tmux dirhistory web-search vagrant virtualenvwrapper pip python git tig svn zsh-syntax-highlighting rvm docker capistrano jira aws kubectl gpg-agent)
+plugins=(sudo dnf tmux dirhistory web-search vagrant virtualenvwrapper pip python git tig svn zsh-syntax-highlighting rvm docker capistrano jira aws kubectl gpg-agent taskwarrior)
 
 source $ZSH/oh-my-zsh.sh
 

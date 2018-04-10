@@ -34,3 +34,6 @@ alias ansg='ansible-galaxy'
 
 # Colored diff
 alias diff='diff --color'
+
+# colorls
+alias lc='colorls -lA --sd --gs'
