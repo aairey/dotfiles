@@ -5,12 +5,14 @@ My dotfiles.
 
 ## Dependencies
 * `zsh`
-* `vim`
+* `vim` > `8.0.x` for the native plugins
 * `python-requests`
 * `pip install virtualenvwrapper`
 * `ctags` for vim plugins
 * `xclip` for clipboard aliases
-* `nodejs` & `npm` if you want JavaScript support with the Vim plugin YouCompleteMe
+* `nodejs` & `npm`
+* `rvm`
+* `go`
 * `powerline`
 
 Change your shell to zsh with the `chsh` command.
