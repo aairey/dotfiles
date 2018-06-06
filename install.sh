@@ -45,6 +45,9 @@ ln -fs $INSTALLDIR/timewarrior.cfg $HOME/.timewarrior/timewarrior.cfg
 # add custom oh-my-zsh plugins
 echo "adding zsh-syntax-highlighting plugin for oh-my-zsh ..."
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+echo "adding zsh-autosuggestions ..."
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
 echo "Fixing aws zs_completion on fedora"
 sed -i '48s/.*/  _aws_zsh_completer_path=\/usr\/share\/zsh\/site-functions\/aws_zsh_completer.sh/' ~/.oh-my-zsh/plugins/aws/aws.plugin.zsh
 
