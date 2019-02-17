@@ -47,6 +47,8 @@ echo "adding zsh-syntax-highlighting plugin for oh-my-zsh ..."
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 echo "adding zsh-autosuggestions ..."
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+echo "adding zsh-nvm ..."
+git clone https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm
 
 echo "Fixing aws zs_completion on fedora"
 sed -i '48s/.*/  _aws_zsh_completer_path=\/usr\/share\/zsh\/site-functions\/aws_zsh_completer.sh/' ~/.oh-my-zsh/plugins/aws/aws.plugin.zsh
