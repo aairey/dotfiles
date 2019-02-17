@@ -1,0 +1,2 @@
+' replace all occurences of color output like [4m with \033[4m
+:%s/\(\[\dm\)/\\033\1/gc
