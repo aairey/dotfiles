@@ -29,7 +29,7 @@ alias vim='vimx'
 
 # Ansible shortcuts
 alias ans='ansible'
-alias ansp='time ansible-playbook -K'
+alias ansp='time ansible-playbook -K --diff'
 alias ansg='ansible-galaxy'
 
 # Colored diff
@@ -37,3 +37,21 @@ alias diff='diff --color'
 
 # colorls
 alias lc='colorls -lA --sd --gs'
+
+# Timewarrior aliases
+alias tsum='timew summary'
+alias tsumi='timew summary :ids'
+
+# Terraform aliases
+alias tf='terraform'
+alias tfi='terraform init'
+alias tfp='terraform plan'
+alias tfa='terraform apply'
+alias tfr='terraform refresh'
+alias tfo='terraform output'
+
+# gojira aliases
+alias jinprogress='jira list -q "assignee = currentUser() AND statusCategory = indeterminate"'
+alias jb='jira browse'
+alias jbc="jira browse $(git branch | grep \* | cut -d ' ' -f2 | cut -d '/' -f2)"
+alias jv='jira view'
