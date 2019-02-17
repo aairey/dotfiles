@@ -1,0 +1,106 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: ~/dotfiles
+  ignoreempty: false
+  keepdot: false
+  link_by_default: true
+  longkey: false
+  showdiff: true
+  workdir: ~/.config/dotdrop
+actions:
+  install_tty_theme: >-
+    sudo cp ~/.local/share/fonts/ter-powerline-v16n.psf.gz /usr/lib/kbd/consolefonts/. && \
+    wget https://raw.githubusercontent.com/josuah/config/master/.local/bin/tty-theme -O ~/bin/tty-theme && \
+    chmod +x ~/bin/tty-theme
+  install_youcompleteme: >-
+    cd ~/vim/pack/start/aairey/YouCompleteMe && \ 
+    ./install.py --tern-completer --gocode-completer && \
+    cd -
+  install_custom_zsh_plugins: >-
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    git clone https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm
+dotfiles:
+  d_fonts:
+    dst: ~/.local/share/fonts
+    link_children: true
+    src: local/share/fonts
+    actions: 
+      - install_tty_theme
+  d_oh-my-zsh:
+    dst: ~/.oh-my-zsh
+    link: true
+    src: oh-my-zsh
+  d_terminator:
+    dst: ~/.config/terminator
+    link_children: true
+    src: config/terminator
+  d_vim:
+    dst: ~/.vim
+    link_children: true
+    src: vim
+  f_aliases:
+    dst: ~/.aliases
+    link: true
+    src: aliases
+  f_bash_logout:
+    dst: ~/.bash_logout
+    link: true
+    src: bash_logout
+  f_bashrc:
+    dst: ~/.bashrc
+    link: true
+    src: bashrc
+  f_bashrc_debian:
+    dst: ~/.bashrc_debian
+    link: true
+    src: bashrc_debian
+  f_bugwarriorrc:
+    dst: ~/.config/bugwarrior/bugwarriorrc
+    link: !!python/object/apply:dotdrop.linktypes.LinkTypes
+    - 1
+    src: config/bugwarrior/bugwarriorrc
+  f_functions:
+    dst: ~/.functions
+    link: true
+    src: functions
+  f_profile:
+    dst: ~/.profile
+    link: true
+    src: profile
+  f_timewarrior.cfg:
+    dst: ~/.timewarrior/timewarrior.cfg
+    link: true
+    src: timewarrior/timewarrior.cfg
+  f_tmux.conf:
+    dst: ~/.tmux.conf
+    link: true
+    src: tmux.conf
+  f_vimrc:
+    dst: ~/.vimrc
+    link: true
+    src: vimrc
+  f_zshrc:
+    dst: ~/.zshrc
+    link: true
+    src: zshrc
+profiles:
+  aairey-be-le01-eu-trimblecorp-net:
+    dotfiles:
+    - f_vimrc
+    - d_vim
+    - f_zshrc
+    - d_oh-my-zsh
+    - f_bashrc
+    - f_bashrc_debian
+    - f_bash_logout
+    - f_profile
+    - f_aliases
+    - f_functions
+    - f_tmux.conf
+    - d_fonts
+    - d_terminator
+    - f_bugwarriorrc
+    - f_timewarrior.cfg

@@ -55,3 +55,6 @@ alias jinprogress='jira list -q "assignee = currentUser() AND statusCategory = i
 alias jb='jira browse'
 alias jbc="jira browse $(git branch | grep \* | cut -d ' ' -f2 | cut -d '/' -f2)"
 alias jv='jira view'
+
+# dotdrop alias
+alias dotdrop="${HOME}/dotfiles/dotdrop.sh --cfg=${HOME}/dotfiles/dotdrop.yml"
