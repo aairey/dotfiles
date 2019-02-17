@@ -68,6 +68,7 @@ set laststatus=2 "always enable statusline
 " Enable GitGutter
 let g:gitgutter_enabled=1
 " Ansible settings
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 let g:ansible_name_highlight = 'b'
 let g:ansible_attribute_highlight = "b"
 let g:ansible_extra_keywords_highlight = 1
