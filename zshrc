@@ -62,7 +62,7 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(sudo dnf tmux dirhistory web-search vagrant virtualenvwrapper pip python git tig zsh-syntax-highlighting zsh-autosuggestions rvm docker capistrano aws kubectl gpg-agent taskwarrior zsh-nvm colored-man-pages)
+plugins=(sudo dnf tmux dirhistory web-search vagrant virtualenvwrapper pip python git tig zsh-syntax-highlighting zsh-autosuggestions docker aws kubectl gpg-agent taskwarrior colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,10 +90,10 @@ source $ZSH/oh-my-zsh.sh
 #eval `ssh-agent -s`
 
 # load powerline
-#. /usr/share/powerline/zsh/powerline.zsh
+. /usr/share/powerline/zsh/powerline.zsh
 
 # load go-jira completions
-#eval "$(jira --completion-script-zsh)"
+eval "$(jira --completion-script-zsh)"
 
 # load powerline-rs
 prompt() {
@@ -101,9 +101,3 @@ prompt() {
 }
 precmd_functions+=(prompt)
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/aairey/.nvm/versions/node/v10.6.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/aairey/.nvm/versions/node/v10.6.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/aairey/.nvm/versions/node/v10.6.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/aairey/.nvm/versions/node/v10.6.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
