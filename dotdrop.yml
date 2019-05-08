@@ -1,3 +1,9 @@
+actions:
+  install_tty_theme: sudo cp ~/.local/share/fonts/ter-powerline-v16n.psf.gz /usr/lib/kbd/consolefonts/.
+    && \ wget https://raw.githubusercontent.com/josuah/config/master/.local/bin/tty-theme
+    -O ~/bin/tty-theme && \ chmod +x ~/bin/tty-theme
+  install_youcompleteme: cd ~/vim/pack/start/aairey/YouCompleteMe && \  ./install.py
+    --tern-completer --gocode-completer && \ cd -
 config:
   backup: true
   banner: true
@@ -5,86 +11,77 @@ config:
   dotpath: ~/dotfiles
   ignoreempty: false
   keepdot: false
-  link_by_default: true
+  link_dotfile_default: link
+  link_on_import: link
   longkey: false
   showdiff: true
   workdir: ~/.config/dotdrop
-actions:
-  install_tty_theme: >-
-    sudo cp ~/.local/share/fonts/ter-powerline-v16n.psf.gz /usr/lib/kbd/consolefonts/. && \
-    wget https://raw.githubusercontent.com/josuah/config/master/.local/bin/tty-theme -O ~/bin/tty-theme && \
-    chmod +x ~/bin/tty-theme
-  install_youcompleteme: >-
-    cd ~/vim/pack/start/aairey/YouCompleteMe && \ 
-    ./install.py --tern-completer --gocode-completer && \
-    cd -
-  install_custom_zsh_plugins: >-
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    git clone https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm
 dotfiles:
   d_fonts:
+    actions:
+    - install_tty_theme
     dst: ~/.local/share/fonts
-    link_children: true
+    link: link_children
     src: local/share/fonts
-    actions: 
-      - install_tty_theme
   d_oh-my-zsh:
     dst: ~/.oh-my-zsh
-    link: true
+    link: link
     src: oh-my-zsh
   d_terminator:
     dst: ~/.config/terminator
-    link_children: true
+    link: link_children
     src: config/terminator
   d_vim:
     dst: ~/.vim
-    link_children: true
+    link: link_children
     src: vim
   f_aliases:
     dst: ~/.aliases
-    link: true
+    link: link
     src: aliases
   f_bash_logout:
     dst: ~/.bash_logout
-    link: true
+    link: link
     src: bash_logout
   f_bashrc:
     dst: ~/.bashrc
-    link: true
+    link: link
     src: bashrc
   f_bashrc_debian:
     dst: ~/.bashrc_debian
-    link: true
+    link: link
     src: bashrc_debian
   f_bugwarriorrc:
     dst: ~/.config/bugwarrior/bugwarriorrc
-    link: !!python/object/apply:dotdrop.linktypes.LinkTypes
-    - 1
+    link: link
     src: config/bugwarrior/bugwarriorrc
   f_functions:
     dst: ~/.functions
-    link: true
+    link: link
     src: functions
   f_profile:
     dst: ~/.profile
-    link: true
+    link: link
     src: profile
   f_timewarrior.cfg:
     dst: ~/.timewarrior/timewarrior.cfg
-    link: true
+    link: link
     src: timewarrior/timewarrior.cfg
   f_tmux.conf:
     dst: ~/.tmux.conf
-    link: true
+    link: link
     src: tmux.conf
   f_vimrc:
     dst: ~/.vimrc
-    link: true
+    link: link
     src: vimrc
+  f_zsh_plugins.txt:
+    dst: ~/.zsh_plugins.txt
+    link: link
+    src: zsh_plugins.txt
   f_zshrc:
     dst: ~/.zshrc
-    link: true
+    link: link
     src: zshrc
 profiles:
   aairey-be-le01-eu-trimblecorp-net:
@@ -104,3 +101,4 @@ profiles:
     - d_terminator
     - f_bugwarriorrc
     - f_timewarrior.cfg
+    - f_zsh_plugins.txt

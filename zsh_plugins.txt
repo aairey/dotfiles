@@ -1,0 +1,25 @@
+# spaceship prompt
+denysdovhan/spaceship-prompt
+
+# syntax highlighting and better history search
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-autosuggestions
+
+# more autocomplete
+zsh-users/zsh-completions
+
+# NVM plugin
+lukechilds/zsh-nvm
+
+# oh-my-zsh plugins
+robbyrussell/oh-my-zsh
+robbyrussell/oh-my-zsh path:plugins/sudo
+robbyrussell/oh-my-zsh path:plugins/git
+#robbyrussell/oh-my-zsh path:plugins/gpg-agent
+robbyrussell/oh-my-zsh path:plugins/web-search
+robbyrussell/oh-my-zsh path:plugins/dnf
+robbyrussell/oh-my-zsh path:plugins/aws
+robbyrussell/oh-my-zsh path:plugins/kubectl
+robbyrussell/oh-my-zsh path:plugins/z
+
