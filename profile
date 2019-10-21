@@ -19,3 +19,4 @@ export TF_LOG="TRACE"
 export TF_LOG_PATH="$HOME/.tflogs"
 
 export LS_COLORS=$(vivid generate molokai)
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)

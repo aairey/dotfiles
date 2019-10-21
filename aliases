@@ -20,6 +20,7 @@ alias docker="sudo /usr/bin/docker"
 
 # Add git push --tags alias
 alias gpt='git push --tags'
+alias gfzf='git log --oneline | fzf --multi --preview "git show --color {+1}"'
 
 # Make aliases work with sudo
 alias sudo='sudo '

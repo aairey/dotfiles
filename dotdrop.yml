@@ -84,35 +84,38 @@ dotfiles:
     link: link
     src: zshrc
 profiles:
+  osx:
+    dotfiles:
+      - f_vimrc
+      - d_vim
+      - f_zshrc
+      - d_oh-my-zsh
+      - f_profile
+      - f_aliases
+      - f_functions
+      - f_tmux.conf
+      - f_zsh_plugins.txt
+  fedora30:
+    dotfiles:
+      - f_vimrc
+      - d_vim
+      - f_zshrc
+      - d_oh-my-zsh
+      - f_profile
+      - f_aliases
+      - f_functions
+      - f_tmux.conf
+      - f_zsh_plugins.txt
   aairey-be-le01-eu-trimblecorp-net:
     dotfiles:
-    - f_vimrc
-    - d_vim
-    - f_zshrc
-    - d_oh-my-zsh
-    - f_bashrc
-    - f_bashrc_debian
-    - f_bash_logout
-    - f_profile
-    - f_aliases
-    - f_functions
-    - f_tmux.conf
-    - d_fonts
-    - d_terminator
-    - f_bugwarriorrc
-    - f_timewarrior.cfg
-    - f_zsh_plugins.txt
-  TDUPAS-BE-LM01:
+      - d_fonts
+      - d_terminator
+      - f_bugwarriorrc
+      - f_timewarrior.cfg
+    include:
+      - fedora30
+  arsenal.home.airey.be:
     dotfiles:
-    - f_vimrc
-    - d_vim
-    - f_zshrc
-    - d_oh-my-zsh
-    - f_bashrc
-    - f_bashrc_debian
-    - f_bash_logout
-    - f_profile
-    - f_aliases
-    - f_functions
-    - f_tmux.conf
-    - f_zsh_plugins.txt
+      - f_bash_logout
+    include:
+      - fedora30

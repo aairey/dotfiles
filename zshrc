@@ -39,4 +39,7 @@ else
   compinit -C
 fi
 
+# added by travis gem
+[ -f /home/aairey/.travis/travis.sh ] && source /home/aairey/.travis/travis.sh
+
 #zprof # show profiler results

@@ -1,6 +1,6 @@
 [general]
 
-targets = jira_trimbletl
+targets = jira_etools
 legacy_matching = False
 inline_links = False
 annotation_links = True
@@ -14,6 +14,18 @@ jira.username = aairey
 jira.password = @oracle:use_keyring
 jira.only_if_assigned = False
 jira.query = assignee = aairey AND NOT (statusCategory = Done OR status in (Verified))
+jira.description_template = {{jiraid}} • {{jirasummary}}
+jira.import_labels_as_tags = True
+jira.import_sprints_as_tags = True
+jira.add_tags = jira
+
+[jira_etools]
+service = jira
+jira.base_uri = https://jira.trimble.tools
+jira.username = svcacct_TTMEUQA_Jenkins
+jira.password = @oracle:use_keyring
+jira.only_if_assigned = False
+jira.query = assignee = "Andy_Airey@Trimble.com" AND NOT (statusCategory = Done OR status in (Verified))
 jira.description_template = {{jiraid}} • {{jirasummary}}
 jira.import_labels_as_tags = True
 jira.import_sprints_as_tags = True
