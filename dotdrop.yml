@@ -84,28 +84,35 @@ dotfiles:
     link: link
     src: zshrc
 profiles:
+  base:
+    dotfiles:
+      - f_vimrc
+      - d_vim
+      - f_zshrc
+      - d_oh-my-zsh
+      - f_profile
+      - f_aliases
+      - f_functions
+      - f_tmux.conf
+      - f_zsh_plugins.txt
   osx:
+    include:
+      - base
+  debian9:
     dotfiles:
-      - f_vimrc
-      - d_vim
-      - f_zshrc
-      - d_oh-my-zsh
-      - f_profile
-      - f_aliases
-      - f_functions
-      - f_tmux.conf
-      - f_zsh_plugins.txt
+      - f_bashrc_debian
+      - f_bash_logout
+    include:
+      - base
+  ubuntu1804:
+    include:
+      - debian9
+  centos8:
+    include:
+      - base
   fedora30:
-    dotfiles:
-      - f_vimrc
-      - d_vim
-      - f_zshrc
-      - d_oh-my-zsh
-      - f_profile
-      - f_aliases
-      - f_functions
-      - f_tmux.conf
-      - f_zsh_plugins.txt
+    include:
+      - base
   aairey-be-le01-eu-trimblecorp-net:
     dotfiles:
       - d_fonts
