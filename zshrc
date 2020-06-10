@@ -39,7 +39,25 @@ else
   compinit -C
 fi
 
+bindkey '^[[3;5~' backward-delete-word
+# bindkey '^[[3~' backward-delete-word
+
+# edit command line in $EDITOR
+bindkey '^e' edit-command-line
+
+# search history with fzf if installed, default otherwise
+if test -d /usr/share/fzf/shell; then
+	# shellcheck disable=SC1091
+	. /usr/share/fzf/shell/key-bindings.zsh
+else
+	bindkey '^R' history-incremental-search-backward
+fi
+
 # added by travis gem
 [ -f /home/aairey/.travis/travis.sh ] && source /home/aairey/.travis/travis.sh
 
 #zprof # show profiler results
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/aairey/.sdkman"
+[[ -s "/home/aairey/.sdkman/bin/sdkman-init.sh" ]] && source "/home/aairey/.sdkman/bin/sdkman-init.sh"

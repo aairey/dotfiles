@@ -21,6 +21,7 @@ alias docker="sudo /usr/bin/docker"
 # Add git push --tags alias
 alias gpt='git push --tags'
 alias gfzf='git log --oneline | fzf --multi --preview "git show --color {+1}"'
+alias gpn='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
 
 # Make aliases work with sudo
 alias sudo='sudo '

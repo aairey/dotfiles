@@ -20,3 +20,8 @@ export TF_LOG_PATH="$HOME/.tflogs"
 
 export LS_COLORS=$(vivid generate molokai)
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+# Workaround for KeePass built-in ssh-agent
+#export SSH_AUTH_SOCK=/tmp/ssh-agent-lib-sock
+
+export _JAVA_AWT_WM_NONREPARENTING=1

@@ -20,3 +20,7 @@ export PATH=$PATH:~/.jx/bin
 
 # added by travis gem
 [ -f /home/aairey/.travis/travis.sh ] && source /home/aairey/.travis/travis.sh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/aairey/.sdkman"
+[[ -s "/home/aairey/.sdkman/bin/sdkman-init.sh" ]] && source "/home/aairey/.sdkman/bin/sdkman-init.sh"
