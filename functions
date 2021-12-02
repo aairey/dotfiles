@@ -58,4 +58,11 @@ transfer() {
 
     # cleanup
     rm -f $tmpfile
+}
+
+aws-use() {
+    # provide profile as input (sandbox, nonprod or prod)
+    SAML2AWS_MFA_TOKEN="$(ykman oath code)" && \
+    saml2aws login -a ${1} --skip-prompt && \
+    export AWS_PROFILE=${1}
 } 

@@ -60,3 +60,11 @@ alias jv='jira view'
 
 # dotdrop alias
 alias dotdrop="${HOME}/dotfiles/dotdrop.sh --cfg=${HOME}/dotfiles/dotdrop.yml"
+
+# AWS aliases
+alias aws-sandbox='saml2aws login -a sandbox --force --mfa-token $(ykman oath accounts code -s Okta) -s --skip-prompt && export AWS_PROFILE=sandbox'
+alias aws-nonprod='saml2aws login -a nonprod --force --mfa-token $(ykman oath accounts code -s Okta) -s --skip-prompt && export AWS_PROFILE=nonprod'
+alias aws-prod='saml2aws login -a prod --force --mfa-token $(ykman oath accounts code -s Okta) -s --skip-prompt && export AWS_PROFILE=prod'
+
+# json to yaml
+alias j2y="python -c 'import sys, yaml, json; yaml.safe_dump(json.load(sys.stdin), sys.stdout, default_flow_style=False)'"

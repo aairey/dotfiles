@@ -12,6 +12,10 @@ if [ -d /usr/lib/kbd/consolefonts/ ]; then
     esac
 fi
 
+#if [ -d "$HOME/adb-fastboot/platform-tools" ] ; then
+# export PATH="$HOME/adb-fastboot/platform-tools:$PATH"
+#fi
+
 export GOPATH="$HOME/go"
 export PATH="$PATH:$HOME/.local/bin:$HOME/bin:$GOPATH/bin:$HOME/.cargo/bin/:$HOME/.rvm/bin"
 
@@ -25,3 +29,4 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 #export SSH_AUTH_SOCK=/tmp/ssh-agent-lib-sock
 
 export _JAVA_AWT_WM_NONREPARENTING=1
+export CHAMBER_AWS_REGION=us-west-2
