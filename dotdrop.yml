@@ -59,6 +59,10 @@ dotfiles:
     dst: ~/.functions
     link: link
     src: functions
+  f_gitconfig:
+    dst: ~/.gitconfig
+    link: link
+    src: gitconfig
   f_profile:
     dst: ~/.profile
     link: link
@@ -93,6 +97,7 @@ profiles:
       - f_profile
       - f_aliases
       - f_functions
+      - f_gitconfig
       - f_tmux.conf
       - f_zsh_plugins.txt
   osx:
