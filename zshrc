@@ -3,9 +3,6 @@
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_EXIT_CODE_SHOW=true
 
-# compatibility with some oh-my-zsh plugins (kubectl)
-export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
-
 # load shell-agnostic stuff first
 if [ -f ~/.profile ]; then
     source ~/.profile
@@ -24,10 +21,14 @@ setopt inc_append_history
 # Reloads the history whenever you use it
 setopt share_history
 
-# Load Antibody and plugins
-source <(antibody init)
-antibody bundle < ~/.zsh_plugins.txt
+# clone antidote if necessary
+[[ -e ~/.antidote ]] || git clone https://github.com/mattmc3/antidote.git ~/.antidote
 
+# source antidote
+. ~/.antidote/antidote.zsh
+
+# generate and source plugins from ~/.zsh_plugins.txt
+antidote load
 # load go-jira completions
 eval "$(jira --completion-script-zsh)"
 
@@ -53,12 +54,6 @@ else
 	bindkey '^R' history-incremental-search-backward
 fi
 
-# added by travis gem
-[ -f /home/aairey/.travis/travis.sh ] && source /home/aairey/.travis/travis.sh
-
 #zprof # show profiler results
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/aairey/.sdkman"
-[[ -s "/home/aairey/.sdkman/bin/sdkman-init.sh" ]] && source "/home/aairey/.sdkman/bin/sdkman-init.sh"
-. /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
+

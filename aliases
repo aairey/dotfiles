@@ -55,7 +55,7 @@ alias tfo='terraform output'
 # gojira aliases
 alias jinprogress='jira list -q "assignee = currentUser() AND statusCategory = indeterminate"'
 alias jb='jira browse'
-alias jbc="jira browse $(git branch | grep \* | cut -d ' ' -f2 | cut -d '/' -f2)"
+function jbc { jira browse $(git branch | grep \* | cut -d ' ' -f2 | cut -d '/' -f2) }
 alias jv='jira view'
 
 # dotdrop alias
