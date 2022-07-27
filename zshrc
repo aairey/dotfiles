@@ -30,7 +30,9 @@ setopt share_history
 # generate and source plugins from ~/.zsh_plugins.txt
 antidote load
 # load go-jira completions
-eval "$(jira --completion-script-zsh)"
+if $(command -v jira 2>/dev/null); then
+  eval "$(jira --completion-script-zsh)"
+fi
 
 # speed improvement: only load zcompdump once a day
 autoload -Uz compinit

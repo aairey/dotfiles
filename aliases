@@ -15,9 +15,6 @@ alias sshro='ssh -lroot'
 alias c='xclip -selection clipboard'
 alias v='xclip -o -selection clipboard'
 
-# Run docker as sudo
-alias docker="sudo /usr/bin/docker"
-
 # Add git push --tags alias
 alias gpt='git push --tags'
 alias gfzf='git log --oneline | fzf --multi --preview "git show --color {+1}"'

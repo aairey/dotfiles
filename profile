@@ -22,8 +22,12 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/bin:$GOPATH/bin:$HOME/.cargo/bin/:$HOM
 export TF_LOG="TRACE"
 export TF_LOG_PATH="$HOME/.tflogs"
 
-export LS_COLORS=$(vivid generate molokai)
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+if $(command vivid 2>/dev/null) ; then
+  export LS_COLORS=$(vivid generate molokai)
+fi
+if [ -d /home/linuxbrew/.linuxbrew ] ; then
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
 
 # Workaround for KeePass built-in ssh-agent
 #export SSH_AUTH_SOCK=/tmp/ssh-agent-lib-sock
