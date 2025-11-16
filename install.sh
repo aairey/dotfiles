@@ -15,7 +15,7 @@ echo "updating submodules ..."
 git submodule update --init --recursive
 
 # initialise dotdrop
-pip3 install -r dotdrop/requirements.txt --user
+#pip3 install -r dotdrop/requirements.txt --user
 /bin/bash ./dotdrop/bootstrap.sh
 
 # create symlinks
@@ -31,6 +31,7 @@ cargo install vivid
 #brew install fd / sudo dnf install -y fd-find
 
 # install colorls, howdoi, asciinema, dockly, fzf, whereami, gtop
+deactivate
 sudo gem install colorls
 sudo pip install howdoi
 sudo python3 -m pip install asciinema

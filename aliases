@@ -19,12 +19,13 @@ alias v='xclip -o -selection clipboard'
 alias gpt='git push --tags'
 alias gfzf='git log --oneline | fzf --multi --preview "git show --color {+1}"'
 alias gpn='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
+alias gcfg='git config --local user.email andy.airey@platformscience.com'
 
 # Make aliases work with sudo
 alias sudo='sudo '
 
 # To be able to use +clipboard in vim
-alias vim='vimx'
+[[ $OSTYPE != 'darwin'* ]] && alias vim='vimx'
 
 # Ansible shortcuts
 alias ans='ansible'
@@ -65,3 +66,6 @@ alias aws-prod='saml2aws login -a prod --force --mfa-token $(ykman oath accounts
 
 # json to yaml
 alias j2y="python -c 'import sys, yaml, json; yaml.safe_dump(json.load(sys.stdin), sys.stdout, default_flow_style=False)'"
+
+# macOS aliases
+#[[ $OSTYPE == 'darwin'* ]] && alias python='python3'#; alias docker='nerdctl'

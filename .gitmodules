@@ -37,3 +37,6 @@
 [submodule "vim/pack/aairey/start/Jenkinsfile-vim-syntax"]
 	path = vim/pack/aairey/start/Jenkinsfile-vim-syntax
 	url = git@github.com:martinda/Jenkinsfile-vim-syntax.git
+[submodule "vim/pack/aairey/start/windsurf.vim"]
+	path = vim/pack/aairey/start/windsurf.vim
+	url = https://github.com/Exafunction/windsurf.vim

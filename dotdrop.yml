@@ -16,6 +16,7 @@ config:
   longkey: false
   showdiff: true
   workdir: ~/.config/dotdrop
+  minversion: 1.14.2
 dotfiles:
   d_fonts:
     actions:
@@ -25,7 +26,7 @@ dotfiles:
     src: local/share/fonts
   d_oh-my-zsh:
     dst: ~/.oh-my-zsh
-    link: link
+    link: absolute
     src: oh-my-zsh
   d_terminator:
     dst: ~/.config/terminator
@@ -37,97 +38,100 @@ dotfiles:
     src: vim
   f_aliases:
     dst: ~/.aliases
-    link: link
+    link: absolute
     src: aliases
   f_bash_logout:
     dst: ~/.bash_logout
-    link: link
+    link: absolute
     src: bash_logout
   f_bashrc:
     dst: ~/.bashrc
-    link: link
+    link: absolute
     src: bashrc
   f_bashrc_debian:
     dst: ~/.bashrc_debian
-    link: link
+    link: absolute
     src: bashrc_debian
   f_bugwarriorrc:
     dst: ~/.config/bugwarrior/bugwarriorrc
-    link: link
+    link: absolute
     src: config/bugwarrior/bugwarriorrc
   f_functions:
     dst: ~/.functions
-    link: link
+    link: absolute
     src: functions
   f_gitconfig:
     dst: ~/.gitconfig
-    link: link
+    link: absolute
     src: gitconfig
   f_profile:
     dst: ~/.profile
-    link: link
+    link: absolute
     src: profile
   f_timewarrior.cfg:
     dst: ~/.timewarrior/timewarrior.cfg
-    link: link
+    link: absolute
     src: timewarrior/timewarrior.cfg
   f_tmux.conf:
     dst: ~/.tmux.conf
-    link: link
+    link: absolute
     src: tmux.conf
   f_vimrc:
     dst: ~/.vimrc
-    link: link
+    link: absolute
     src: vimrc
   f_zsh_plugins.txt:
     dst: ~/.zsh_plugins.txt
-    link: link
+    link: absolute
     src: zsh_plugins.txt
   f_zshrc:
     dst: ~/.zshrc
-    link: link
+    link: absolute
     src: zshrc
 profiles:
   base:
     dotfiles:
-      - f_vimrc
-      - d_vim
-      - f_zshrc
-      - d_oh-my-zsh
-      - f_profile
-      - f_aliases
-      - f_functions
-      - f_gitconfig
-      - f_tmux.conf
-      - f_zsh_plugins.txt
+    - f_vimrc
+    - d_vim
+    - f_zshrc
+    - d_oh-my-zsh
+    - f_profile
+    - f_aliases
+    - f_functions
+    - f_gitconfig
+    - f_tmux.conf
+    - f_zsh_plugins.txt
   osx:
     include:
-      - base
+    - base
   debian9:
     dotfiles:
-      - f_bashrc_debian
-      - f_bash_logout
+    - f_bashrc_debian
+    - f_bash_logout
     include:
-      - base
+    - base
   ubuntu1804:
     include:
-      - debian9
+    - debian9
   centos8:
     include:
-      - base
+    - base
   fedora30:
     include:
-      - base
+    - base
   aairey-be-le01-eu-trimblecorp-net:
     dotfiles:
-      - d_fonts
-      - d_terminator
-      - f_bugwarriorrc
-      - f_timewarrior.cfg
+    - d_fonts
+    - d_terminator
+    - f_bugwarriorrc
+    - f_timewarrior.cfg
     include:
-      - fedora30
+    - fedora30
   arsenal.home.airey.be:
     dotfiles:
-      - f_bash_logout
+    - f_bash_logout
     include:
-      - fedora30
+    - fedora30
+  MacBookPro.home.airey.be:
+    include:
+    - osx

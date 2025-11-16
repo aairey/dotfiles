@@ -57,9 +57,11 @@ endif
 "colorscheme solarized
 
 " Enable powerline
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
+" python3 from powerline.vim import setup as powerline_setup
+" python3 powerline_setup()
+" python3 del powerline_setup
+let g:airline_theme='powerlineish'
+let g:airline_powerline_fonts = 1
 set laststatus=2 "always enable statusline
 
 " Plugins

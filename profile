@@ -34,3 +34,4 @@ fi
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 export CHAMBER_AWS_REGION=us-west-2
+export PATH=/usr/local/Cellar/ruby/2.4.1_1/bin:$PATH

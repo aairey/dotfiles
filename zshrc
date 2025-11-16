@@ -36,7 +36,7 @@ fi
 
 # speed improvement: only load zcompdump once a day
 autoload -Uz compinit
-if [ $(date +'%j') != $(stat -c '%z'  ~/.zcompdump | date +'%j') ]; then
+if [ $(date +'%j') != $(stat -c '%z'  ~/.zcompdump | date +'%j') ]; then #TODO stat '-c' does not exist on macOS
   compinit
 else
   compinit -C
@@ -56,6 +56,21 @@ else
 	bindkey '^R' history-incremental-search-backward
 fi
 
+# enable 1password SSH Agent on macOS
+if [ ${OSTYPE:0:6} = 'darwin' ]; then
+    export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+fi
+
 #zprof # show profiler results
 
 
+SPACESHIP_PROMPT_ASYNC=FALSE
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH=$PATH:~/.rd/bin
+export DOCKER_HOST=unix:///Users/aairey/.rd/docker.sock
+
+# Added by Windsurf
+export PATH="/Users/aairey/.codeium/windsurf/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+SPACESHIP_PROMPT_ASYNC=FALSE
