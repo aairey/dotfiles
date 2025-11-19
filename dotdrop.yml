@@ -135,3 +135,6 @@ profiles:
   MacBookPro.home.airey.be:
     include:
     - osx
+  aairey:
+    include:
+    - osx

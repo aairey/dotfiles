@@ -30,13 +30,23 @@ setopt share_history
 # generate and source plugins from ~/.zsh_plugins.txt
 antidote load
 # load go-jira completions
-if $(command -v jira 2>/dev/null); then
+if command -v jira >/dev/null 2>&1; then
   eval "$(jira --completion-script-zsh)"
 fi
 
 # speed improvement: only load zcompdump once a day
 autoload -Uz compinit
-if [ $(date +'%j') != $(stat -c '%z'  ~/.zcompdump | date +'%j') ]; then #TODO stat '-c' does not exist on macOS
+
+# Determine the OS and set the appropriate stat command
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS
+  last_mod_time=$(stat -f '%m' ~/.zcompdump)
+else
+  # Linux
+  last_mod_time=$(stat -c '%Y' ~/.zcompdump)
+fi
+
+if [ $(date +'%j') != $(date -r $last_mod_time +'%j') ]; then
   compinit
 else
   compinit -C

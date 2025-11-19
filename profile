@@ -22,11 +22,16 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/bin:$GOPATH/bin:$HOME/.cargo/bin/:$HOM
 export TF_LOG="TRACE"
 export TF_LOG_PATH="$HOME/.tflogs"
 
-if $(command vivid 2>/dev/null) ; then
+if command -v vivid >/dev/null 2>&1; then
   export LS_COLORS=$(vivid generate molokai)
 fi
 if [ -d /home/linuxbrew/.linuxbrew ] ; then
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
+
+# Use Vim with Python
+if (command -v brew && brew list --formula | grep -c vim ) > /dev/null 2>&1; then
+    alias vim="$(brew --prefix vim)/bin/vim"
 fi
 
 # Workaround for KeePass built-in ssh-agent
@@ -35,3 +40,4 @@ fi
 export _JAVA_AWT_WM_NONREPARENTING=1
 export CHAMBER_AWS_REGION=us-west-2
 export PATH=/usr/local/Cellar/ruby/2.4.1_1/bin:$PATH
+export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"

@@ -40,3 +40,9 @@
 [submodule "vim/pack/aairey/start/windsurf.vim"]
 	path = vim/pack/aairey/start/windsurf.vim
 	url = https://github.com/Exafunction/windsurf.vim
+[submodule "vim/pack/aairey/start/vim-airline"]
+	path = vim/pack/aairey/start/vim-airline
+	url = git@github.com:vim-airline/vim-airline.git
+[submodule "vim/pack/dist/start/vim-airline-themes"]
+	path = vim/pack/dist/start/vim-airline-themes
+	url = git@github.com:vim-airline/vim-airline-themes.git

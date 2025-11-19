@@ -24,3 +24,4 @@ ohmyzsh/ohmyzsh path:plugins/dnf
 ohmyzsh/ohmyzsh path:plugins/kubectl
 ohmyzsh/ohmyzsh path:plugins/z
 ohmyzsh/ohmyzsh path:plugins/asdf
+ohmyzsh/ohmyzsh path:plugins/gnu-utils

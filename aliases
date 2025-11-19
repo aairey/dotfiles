@@ -69,3 +69,4 @@ alias j2y="python -c 'import sys, yaml, json; yaml.safe_dump(json.load(sys.stdin
 
 # macOS aliases
 #[[ $OSTYPE == 'darwin'* ]] && alias python='python3'#; alias docker='nerdctl'
+[[ $OSTYPE == 'darwin'* ]] && alias ls="gls --color"
