@@ -29,11 +29,6 @@ if [ -d /home/linuxbrew/.linuxbrew ] ; then
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
 
-# Use Vim with Python
-if (command -v brew && brew list --formula | grep -c vim ) > /dev/null 2>&1; then
-    alias vim="$(brew --prefix vim)/bin/vim"
-fi
-
 # Workaround for KeePass built-in ssh-agent
 #export SSH_AUTH_SOCK=/tmp/ssh-agent-lib-sock
 
