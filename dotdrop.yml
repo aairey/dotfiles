@@ -88,11 +88,16 @@ dotfiles:
     dst: ~/.zshrc
     link: absolute
     src: zshrc
+  f_nvim_init.lua:
+    dst: ~/.config/nvim/init.lua
+    link: absolute
+    src: config/nvim/init.lua
 profiles:
   base:
     dotfiles:
     - f_vimrc
     - d_vim
+    - f_nvim_init.lua
     - f_zshrc
     - d_oh-my-zsh
     - f_profile

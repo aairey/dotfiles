@@ -24,8 +24,11 @@ alias gcfg='git config --local user.email andy.airey@platformscience.com'
 # Make aliases work with sudo
 alias sudo='sudo '
 
-# To be able to use +clipboard in vim
-[[ $OSTYPE != 'darwin'* ]] && alias vim='vimx'
+# Use nvim as the default vim
+alias vim='nvim'
+
+# On non-macOS systems, also support +clipboard with vimx if available
+[[ $OSTYPE != 'darwin'* ]] && command -v vimx &>/dev/null && alias vim='vimx'
 
 # Ansible shortcuts
 alias ans='ansible'

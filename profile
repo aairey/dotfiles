@@ -41,3 +41,4 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export CHAMBER_AWS_REGION=us-west-2
 export PATH=/usr/local/Cellar/ruby/2.4.1_1/bin:$PATH
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
+. "$HOME/.cargo/env"

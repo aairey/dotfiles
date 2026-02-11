@@ -3,6 +3,11 @@
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_EXIT_CODE_SHOW=true
 
+# Use Homebrew curl on macOS (needed for AWS signature v4 support)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+fi
+
 # load shell-agnostic stuff first
 if [ -f ~/.profile ]; then
     source ~/.profile
@@ -70,6 +75,11 @@ fi
 if [ ${OSTYPE:0:6} = 'darwin' ]; then
     export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 fi
+
+# enable byobu support when SSH-ing
+#if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
+#    export TERM=xterm-256color
+#fi
 
 #zprof # show profiler results
 
