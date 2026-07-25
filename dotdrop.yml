@@ -24,6 +24,14 @@ dotfiles:
     dst: ~/.local/share/fonts
     link: link_children
     src: local/share/fonts
+  d_ghostty:
+    dst: ~/.config/ghostty/
+    link: link_children
+    src: config/ghostty
+  d_nvim_lua:
+    dst: ~/.config/nvim/lua
+    link: link_children
+    src: config/nvim/lua
   d_oh-my-zsh:
     dst: ~/.oh-my-zsh
     link: absolute
@@ -36,10 +44,6 @@ dotfiles:
     dst: ~/.vim
     link: link_children
     src: vim
-  d_nvim_lua:
-    dst: ~/.config/nvim/lua
-    link: link_children
-    src: config/nvim/lua
   f_aliases:
     dst: ~/.aliases
     link: absolute
@@ -104,6 +108,7 @@ profiles:
     - d_nvim_lua
     - f_nvim_init.lua
     - f_zshrc
+    - d_ghostty
     - d_oh-my-zsh
     - f_profile
     - f_aliases
