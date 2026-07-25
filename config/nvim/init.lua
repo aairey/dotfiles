@@ -1050,10 +1050,10 @@ require('lazy').setup({
       },
       mappings = {
         suggestion = {
-          accept = '<C-y>',
-          next = '<C-n>',
-          prev = '<C-p>',
-          dismiss = '<C-c>',
+          accept = '<C-j>',
+          next = '<C-m>',
+          prev = '<C-l>',
+          dismiss = '<C-\\>',
         },
       },
     },
@@ -1064,6 +1064,17 @@ require('lazy').setup({
     'HiPhish/rainbow-delimiters.nvim',
     event = 'BufReadPost',
     config = function()
+      local rainbow = require 'rainbow-delimiters'
+      local lib = require 'rainbow-delimiters.lib'
+      -- Patch attach to guard nil parser (nvim 0.12 get_parser returns nil, not error)
+      local orig_attach = lib.attach
+      lib.attach = function(bufnr)
+        local lang = vim.treesitter.language.get_lang(vim.bo[bufnr].ft)
+        if not lang then return end
+        local ok, parser = pcall(vim.treesitter.get_parser, bufnr, lang)
+        if not ok or not parser then return end
+        orig_attach(bufnr)
+      end
       require('rainbow-delimiters.setup').setup {}
     end,
   },
@@ -1128,6 +1139,79 @@ require('lazy').setup({
       { '<leader>gh', ':DiffviewFileHistory %<CR>', desc = 'File history' },
     },
     opts = {},
+  },
+
+  -- Quick file bookmarks + instant jump (mark up to 4 files, navigate with <C-h/t/n/s>)
+  {
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      local harpoon = require 'harpoon'
+      harpoon:setup()
+      vim.keymap.set('n', '<leader>ha', function() harpoon:list():add() end, { desc = 'Harpoon add file' })
+      vim.keymap.set('n', '<leader>hh', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = 'Harpoon menu' })
+      vim.keymap.set('n', '<C-h>', function() harpoon:list():select(1) end, { desc = 'Harpoon file 1' })
+      vim.keymap.set('n', '<C-t>', function() harpoon:list():select(2) end, { desc = 'Harpoon file 2' })
+      vim.keymap.set('n', '<C-n>', function() harpoon:list():select(3) end, { desc = 'Harpoon file 3' })
+      vim.keymap.set('n', '<C-s>', function() harpoon:list():select(4) end, { desc = 'Harpoon file 4' })
+    end,
+  },
+
+  -- Magit-style git UI
+  {
+    'NeogitOrg/neogit',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+    keys = {
+      { '<leader>gg', ':Neogit<CR>', desc = 'Neogit' },
+    },
+    opts = {
+      integrations = { diffview = true, telescope = true },
+    },
+  },
+
+  -- Snacks: scratch buffers, better notifications, word highlight, zen mode, and more
+  {
+    'folke/snacks.nvim',
+    priority = 1000,
+    lazy = false,
+    opts = {
+      bigfile = { enabled = true },
+      notifier = { enabled = true, timeout = 3000 },
+      quickfile = { enabled = true },
+      words = { enabled = true },
+      zen = { enabled = true },
+      scratch = { enabled = true },
+      statuscolumn = { enabled = true },
+    },
+    keys = {
+      { '<leader>z',  function() require('snacks').zen() end,                   desc = 'Zen mode' },
+      { '<leader>.',  function() require('snacks').scratch() end,               desc = 'Toggle scratch buffer' },
+      { '<leader>S',  function() require('snacks').scratch.select() end,        desc = 'Select scratch buffer' },
+      { '<leader>un', function() require('snacks').notifier.hide() end,         desc = 'Dismiss notifications' },
+      { ']]',         function() require('snacks').words.jump(vim.v.count1) end,  desc = 'Next word reference' },
+      { '[[',         function() require('snacks').words.jump(-vim.v.count1) end, desc = 'Prev word reference' },
+    },
+  },
+
+  -- Claude Code inside nvim (opens CLI in floating terminal)
+  {
+    'greggh/claude-code.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    keys = {
+      { '<leader>cc', ':ClaudeCode<CR>',       desc = 'Toggle Claude Code' },
+      { '<leader>cr', ':ClaudeCodeResume<CR>',  desc = 'Resume Claude Code session' },
+    },
+    opts = {
+      window = {
+        position = 'float',
+        float = { width = '85%', height = '85%' },
+      },
+    },
   },
 
   -- Kubernetes management

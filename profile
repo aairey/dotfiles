@@ -37,3 +37,8 @@ export CHAMBER_AWS_REGION=us-west-2
 export PATH=/usr/local/Cellar/ruby/2.4.1_1/bin:$PATH
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
 . "$HOME/.cargo/env"
+
+# Source Claude config ~/.runclaude.config if file exists
+#if [ -f "$HOME/.runclaude.config" ]; then
+#  . "$HOME/.runclaude.config"
+#fi

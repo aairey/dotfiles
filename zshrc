@@ -39,6 +39,11 @@ if command -v jira >/dev/null 2>&1; then
   eval "$(jira --completion-script-zsh)"
 fi
 
+# load ngrok completions
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
+fi
+
 # speed improvement: only load zcompdump once a day
 autoload -Uz compinit
 
@@ -83,8 +88,7 @@ fi
 
 #zprof # show profiler results
 
-
-SPACESHIP_PROMPT_ASYNC=FALSE
+#SPACESHIP_PROMPT_ASYNC=FALSE
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH=$PATH:~/.rd/bin
@@ -93,7 +97,16 @@ export DOCKER_HOST=unix:///Users/aairey/.rd/docker.sock
 # Added by Windsurf
 export PATH="/Users/aairey/.codeium/windsurf/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-SPACESHIP_PROMPT_ASYNC=FALSE
+
+# peon-ping quick controls
+alias peon="bash /Users/aairey/.claude/hooks/peon-ping/peon.sh"
+[ -f /Users/aairey/.claude/hooks/peon-ping/completions.bash ] && source /Users/aairey/.claude/hooks/peon-ping/completions.bash
+export GOOGLE_CLOUD_PROJECT="gemini-cli-469620"
+export CLAUDE_CODE_MAX_OUTPUT_TOKENS=32768
+
+# Alias for EU Claude Code
+alias claude-eu='claude --settings ~/.claude/settings-eu.json'
 
 # opencode
 export PATH=/Users/aairey/.opencode/bin:$PATH
+

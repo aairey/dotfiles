@@ -60,11 +60,72 @@ transfer() {
     rm -f $tmpfile
 }
 
+# Helper function to authenticate to AWS using 1Password credentials
+_aws_login_1password() {
+    local profile="${1}"
+    local op_item_name="${2:-Okta - Platform Science}"  # Default to "Okta - Platform Science" if not provided
+
+    # Check if 1Password CLI is authenticated
+    if ! op whoami &>/dev/null; then
+        printf "1Password CLI is not authenticated. Sign in now? [Y/n] " >&2
+        read -r response
+        if [[ "$response" =~ ^[Yy]?$ ]]; then
+            eval $(op signin)
+            if ! op whoami &>/dev/null; then
+                echo "Error: Failed to authenticate to 1Password." >&2
+                return 1
+            fi
+        else
+            echo "Aborted: 1Password authentication required." >&2
+            return 1
+        fi
+    fi
+
+    # Retrieve credentials from 1Password
+    local username password mfa_token
+    username=$(op read "op://Employee/${op_item_name}/username" 2>/dev/null)
+    password=$(op read "op://Employee/${op_item_name}/password" 2>/dev/null)
+    mfa_token=$(op item get "${op_item_name}" --vault "Employee" --otp 2>/dev/null)
+
+    # Validate credentials were retrieved successfully
+    if [[ -z "${username}" ]] || [[ -z "${password}" ]] || [[ -z "${mfa_token}" ]]; then
+        echo "Error: Failed to retrieve credentials from 1Password. Check that the item '${op_item_name}' exists in the 'Employee' vault." >&2
+        return 1
+    fi
+
+    # Use env vars for username/password
+    export SAML2AWS_USERNAME="${username}"
+    export SAML2AWS_PASSWORD="${password}"
+    export SAML2AWS_MFA_TOKEN="${mfa_token}"
+
+    # Run saml2aws
+    saml2aws login -a "${profile}" --force -s --skip-prompt
+
+    local login_result=$?
+
+    if [[ ${login_result} -eq 0 ]]; then
+        export AWS_PROFILE="${profile}"
+        echo "Successfully authenticated to AWS profile: ${profile}"
+    else
+        echo "Error: Failed to authenticate to AWS profile: ${profile}" >&2
+        return ${login_result}
+    fi
+
+    # Clean up environment
+    unset SAML2AWS_USERNAME SAML2AWS_PASSWORD SAML2AWS_MFA_TOKEN
+}
+
 aws-use() {
-    # provide profile as input (sandbox, nonprod or prod)
-    SAML2AWS_MFA_TOKEN="$(ykman oath code)" && \
-    saml2aws login -a ${1} --skip-prompt && \
-    export AWS_PROFILE=${1}
+    # Validate input
+    if [[ $# -lt 1 ]]; then
+        echo "Usage: aws-use <profile> [1password-item-name]" >&2
+        echo "Example: aws-use nonprod" >&2
+        echo "Example: aws-use nonprod \"My Custom Okta Entry\"" >&2
+        return 1
+    fi
+
+    # Use the same helper function with optional entry name parameter
+    _aws_login_1password "${1}" "${2}"
 } 
 
 unalias z 2> /dev/null
@@ -73,3 +134,79 @@ z() {
     cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
 }
 
+refresh-k8s-mcp() {
+    # Generate a new token
+    TOKEN="$(kubectl create token mcp-viewer --duration=2h -n mcp)"
+    # Update the kubeconfig file
+    kubectl config --kubeconfig="$KUBECONFIG_FILE" set-credentials mcp-viewer --token="$TOKEN"
+}
+
+# Helper function to load GitHub PAT from 1Password
+_github_pat_1password() {
+    # Check if 1Password CLI is authenticated
+    if ! op whoami &>/dev/null; then
+        printf "1Password CLI is not authenticated. Sign in now? [y/n] " >&2
+        read -r response
+        if [[ "$response" =~ ^[Yy]$ ]]; then
+            eval $(op signin)
+            if ! op whoami &>/dev/null; then
+                echo "Error: Failed to authenticate to 1Password." >&2
+                return 1
+            fi
+        else
+            echo "Aborted: 1Password authentication required." >&2
+            return 1
+        fi
+    fi
+
+    # Retrieve GitHub PAT from 1Password
+    local pat
+    pat=$(op read "op://Employee/Windsurf PAT/token" 2>/dev/null)
+
+    # Validate PAT was retrieved successfully
+    if [[ -z "${pat}" ]]; then
+        echo "Error: Failed to retrieve GitHub PAT from 1Password. Check that 'Windsurf PAT' exists in the 'Employee' vault." >&2
+        return 1
+    fi
+
+    # Export the environment variable
+    export GITHUB_PERSONAL_ACCESS_TOKEN="${pat}"
+    echo "Successfully loaded GITHUB_PERSONAL_ACCESS_TOKEN from 1Password"
+}
+
+github-pat() {
+    _github_pat_1password
+}
+
+approve-pr() {
+    if [[ $# -lt 1 ]]; then
+        echo "Usage: approve-pr <pr-url>" >&2
+        echo "Example: approve-pr https://github.com/pstleu/config-nonprod/pull/3149" >&2
+        return 1
+    fi
+
+    local pr_url="${1}"
+    local original_user
+
+    # Save current authenticated user
+    original_user=$(gh auth status --json activeLogin -q 2>/dev/null || echo "aairey")
+
+    # Switch to service account
+    gh auth switch -u svcacct-trimbletl-github || {
+        echo "Error: Failed to switch to svcacct-trimbletl-github" >&2
+        return 1
+    }
+
+    # Approve the PR
+    gh pr review "${pr_url}" --approve --body "Approved from CLI." || {
+        local result=$?
+        echo "Error: Failed to approve PR" >&2
+        gh auth switch -u "${original_user}"
+        return ${result}
+    }
+
+    # Switch back to original user
+    gh auth switch -u "${original_user}"
+
+    echo "Successfully approved PR: ${pr_url}"
+}
