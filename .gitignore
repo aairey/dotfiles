@@ -16,3 +16,6 @@ mnt
 *.swo
 *.bak
 dotdrop.sh
+
+local/share/fonts/msfonts/fontinst.exe
+local/share/fonts/msfonts/FONTINST.EXE

@@ -94,3 +94,6 @@ export DOCKER_HOST=unix:///Users/aairey/.rd/docker.sock
 export PATH="/Users/aairey/.codeium/windsurf/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 SPACESHIP_PROMPT_ASYNC=FALSE
+
+# opencode
+export PATH=/Users/aairey/.opencode/bin:$PATH
